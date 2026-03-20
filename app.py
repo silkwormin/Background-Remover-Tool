@@ -122,7 +122,6 @@ with st.sidebar:
     with col_dim2: alto_lienzo = st.number_input("Alto Total (px)", min_value=100, max_value=4000, key="alto_lienzo")
     
     st.header("🔲 Márgenes")
-    st.info("💡 Si pones 0px, las zonas cortadas de la foto original se pegarán como imanes a ese margen.")
     col_marg1, col_marg2 = st.columns(2)
     with col_marg1:
         margen_arriba = st.number_input("Arriba (px)", min_value=0, max_value=4000, key="margen_arriba")
