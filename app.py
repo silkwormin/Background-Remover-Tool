@@ -112,6 +112,14 @@ def aplicar_plantilla():
         for key in defaults.keys():
             if key in p: st.session_state[key] = p[key]
 
+# Generador de llave para resetear el uploader
+if 'uploader_key' not in st.session_state:
+    st.session_state.uploader_key = str(time.time())
+
+def limpiar_cola():
+    # Al cambiar la llave, Streamlit borra el uploader anterior y crea uno vacío
+    st.session_state.uploader_key = str(time.time())
+
 # ==========================================
 #  INTERFAZ DE USUARIO
 # ==========================================
@@ -160,12 +168,19 @@ with st.sidebar:
     st.markdown("<div style='text-align: center; color: #888888; font-size: 13px; font-weight: 300;'>Desarrollado por Silvia Fernández ✨</div>", unsafe_allow_html=True)
 
 st.header("📂 Subir Archivos")
-archivos_subidos = st.file_uploader("Arrastra aquí tus imágenes (JPG o PNG)", type=['jpg', 'jpeg', 'png'], accept_multiple_files=True)
+
+archivos_subidos = st.file_uploader("Arrastra aquí tus imágenes (JPG, PNG o WEBP)", type=['jpg', 'jpeg', 'png', 'webp'], accept_multiple_files=True, key=st.session_state.uploader_key)
+
+col_btn1, col_btn2 = st.columns([1, 1])
+with col_btn1:
+    btn_procesar = st.button("🚀 Iniciar Procesamiento", type="primary", disabled=hay_error_margenes, use_container_width=True)
+with col_btn2:
+    st.button("🧹 Limpiar cola de archivos", on_click=limpiar_cola, use_container_width=True)
 
 # ==========================================
 #  MOTOR DE PROCESAMIENTO
 # ==========================================
-if st.button("🚀 Iniciar Procesamiento", type="primary", disabled=hay_error_margenes):
+if btn_procesar:
     
     if not archivos_subidos:
         st.warning("⚠️ No has subido ninguna imagen.")
