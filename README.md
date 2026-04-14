@@ -6,7 +6,7 @@ La herramienta se encarga de eliminar fondos (usando la API de Modelia), reescal
 
 ## ✨ Características Principales
 
-* **Procesamiento por Lotes (Multi-formato):** Sube múltiples imágenes al mismo tiempo, incluyendo soporte total para formatos de nueva generación fotográfica como **WEBP**, además de los clásicos JPG y PNG.
+* **Procesamiento por Lotes (Multi-formato):** Sube múltiples imágenes al mismo tiempo, incluyendo soporte total para formatos de nueva generación fotográfica como **WEBP** y **AVIF** , además de los clásicos JPG y PNG.
 * **Limpieza Rápida de Cola (Gestión de Memoria):** Un botón dedicado ("🧹 Limpiar cola de archivos") para vaciar el cajón de subida al instante y preparar el entorno para la siguiente tanda de catálogo, ahorrando clics innecesarios.
 * **Anclaje Inteligente (Smart Bleed Detection):** El algoritmo escanea la foto original en 360º. Si detecta que una prenda o extremidad (brazo, pierna) tocaba el borde, la "imanta" matemáticamente a ese mismo borde en el lienzo final para evitar que quede flotando en el vacío.
 * **Plantillas Industriales Integradas:** Formatos preconfigurados a un solo clic para los estándares más usados: *Shopify (900x1125)*, *Kings (700x1000)* y *Cuadrado Universal (1200x1200)*, con versiones específicas para modelo (sin márgenes) o prenda (con márgenes).
